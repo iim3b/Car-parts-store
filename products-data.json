@@ -1,0 +1,28 @@
+{
+  "categories": [
+    { "name": "فلاتر وصيانة دورية", "slug": "filters-and-maintenance", "description": "جميع الفلاتر وقطع الصيانة السريعة", "sortOrder": 1 },
+    { "name": "نظام الفرامل", "slug": "brake-system", "description": "فحمات وهوبات وقطع السلامة", "sortOrder": 2 }
+  ],
+  "products": [
+    {
+      "name": "فلتر زيت أصلي",
+      "slug": "original-oil-filter",
+      "description": "فلتر زيت أصلي يوفر حماية عالية للمحرك.",
+      "price": 45,
+      "stock": 25,
+      "featured": true,
+      "imageUrl": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=500",
+      "categorySlug": "filters-and-maintenance"
+    },
+    {
+      "name": "طقم فحمات فرامل أمامية",
+      "slug": "front-brake-pads",
+      "description": "فحمات فرامل سيراميك عالية الأداء.",
+      "price": 180,
+      "stock": 15,
+      "featured": true,
+      "imageUrl": "https://images.unsplash.com/photo-1600706432520-2c35f7956cf1?w=500",
+      "categorySlug": "brake-system"
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+// ============================================================
+// مخطط قاعدة البيانات - متجر قطع غيار السيارات
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING // بانتظار الدفع
+  PAID // تم الدفع
+  PROCESSING // قيد التجهيز
+  SHIPPED // تم الشحن
+  DELIVERED // تم التسليم
+  CANCELLED // ملغي
+}
+
+enum PaymentStatus {
+  UNPAID
+  PAID
+  REFUNDED
+  FAILED
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  phone        String?
+  role         Role     @default(CUSTOMER)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  cart   Cart?
+  orders Order[]
+
+  @@index([email])
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String?
+  imageUrl    String?
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  products Product[]
+}
+
+model Product {
+  id               String   @id @default(cuid())
+  name             String
+  slug             String   @unique
+  description      String
+  sku              String   @unique
+  brand            String?
+  price            Decimal  @db.Decimal(10, 2)
+  compareAtPrice   Decimal? @db.Decimal(10, 2)
+  stock            Int      @default(0)
+  imageUrl         String
+  isActive         Boolean  @default(true)
+  isFeatured       Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+
+  images         ProductImage[]
+  compatibilities CarCompatibility[]
+  cartItems      CartItem[]
+  orderItems     OrderItem[]
+
+  @@index([categoryId])
+  @@index([name])
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  url       String
+  sortOrder Int     @default(0)
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+}
+
+// توافق القطعة مع سيارات محددة: الصانع + الموديل + مدى السنوات
+model CarCompatibility {
+  id        String  @id @default(cuid())
+  make      String // الشركة المصنعة، مثال: تويوتا
+  model     String // الموديل، مثال: كامري
+  yearFrom  Int
+  yearTo    Int
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+  @@index([make, model])
+}
+
+model Cart {
+  id        String     @id @default(cuid())
+  userId    String     @unique
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     CartItem[]
+  updatedAt DateTime   @updatedAt
+}
+
+model CartItem {
+  id        String  @id @default(cuid())
+  cartId    String
+  cart      Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantity  Int     @default(1)
+
+  @@unique([cartId, productId])
+}
+
+model Order {
+  id          String        @id @default(cuid())
+  orderNumber String        @unique
+  userId      String
+  user        User          @relation(fields: [userId], references: [id])
+  status      OrderStatus   @default(PENDING)
+  paymentStatus PaymentStatus @default(UNPAID)
+
+  subtotal    Decimal @db.Decimal(10, 2)
+  shippingFee Decimal @db.Decimal(10, 2) @default(0)
+  total       Decimal @db.Decimal(10, 2)
+
+  // بيانات الشحن (مبسّطة داخل الطلب لتفادي تعقيد جداول إضافية في MVP)
+  shippingName    String
+  shippingPhone   String
+  shippingCity    String
+  shippingAddress String
+  notes           String?
+
+  stripeSessionId String? @unique
+
+  items OrderItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([status])
+}
+
+model OrderItem {
+  id          String  @id @default(cuid())
+  orderId     String
+  order       Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId   String
+  product     Product @relation(fields: [productId], references: [id])
+  productName String // نسخة من الاسم وقت الشراء (حماية من تغييره لاحقًا)
+  price       Decimal @db.Decimal(10, 2) // السعر وقت الشراء
+  quantity    Int
+
+  @@index([orderId])
+}

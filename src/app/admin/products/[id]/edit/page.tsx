@@ -1,0 +1,50 @@
+import { notFound, redirect } from "next/navigation";
+import { getCurrentUser } from "@/lib/auth";
+import { getAllCategoriesForAdmin, getProductBySlug } from "@/lib/queries";
+import { ProductForm } from "@/components/admin/ProductForm";
+
+export const dynamic = "force-dynamic";
+
+export default async function EditProductPage({ params }: { params: { id: string } }) {
+  const user = await getCurrentUser();
+  if (!user || user.role !== "ADMIN") redirect("/login");
+
+  const [categories, product] = await Promise.all([
+    getAllCategoriesForAdmin(),
+    getProductBySlug(params.id),
+  ]);
+
+  if (!product) notFound();
+
+  return (
+    <div>
+      <h1 className="mb-6 text-xl font-bold text-graphite-800">تعديل المنتج: {product.name}</h1>
+      <div className="rounded-lg border border-graphite-200 bg-white p-5">
+        <ProductForm
+          categories={categories}
+          initial={{
+            id: product.id,
+            name: product.name,
+            description: product.description,
+            sku: product.sku,
+            brand: product.brand ?? "",
+            price: Number(product.price),
+            compareAtPrice: product.compareAtPrice ? Number(product.compareAtPrice) : null,
+            stock: product.stock,
+            imageUrl: product.imageUrl,
+            categoryId: product.categoryId,
+            isActive: product.isActive,
+            isFeatured: product.isFeatured,
+            images: product.images.map((i) => i.url),
+            compatibilities: product.compatibilities.map((c) => ({
+              make: c.make,
+              model: c.model,
+              yearFrom: c.yearFrom,
+              yearTo: c.yearTo,
+            })),
+          }}
+        />
+      </div>
+    </div>
+  );
+}

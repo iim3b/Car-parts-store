@@ -11,3 +11,6 @@ export type ProductWithDetails = Product & {
 export type OrderWithItems = Order & { items: OrderItem[] };
 
 export type CategoryWithCount = Category & { _count: { products: number } };
+
+/** شكل مصغّر للقسم يكفي لقوائم الاختيار (مثل نموذج المنتج) دون الحاجة لعدد المنتجات */
+export type CategoryOption = Pick<Category, "id" | "name">;

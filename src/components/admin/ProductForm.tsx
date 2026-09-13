@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import type { CategoryWithCount } from "@/types";
+import type { CategoryOption } from "@/types";
 
 type Compatibility = { make: string; model: string; yearFrom: number; yearTo: number };
 
@@ -43,7 +43,7 @@ export function ProductForm({
   categories,
   initial,
 }: {
-  categories: CategoryWithCount[];
+  categories: CategoryOption[];
   initial?: ProductFormInitial;
 }) {
   const router = useRouter();

@@ -1,7 +1,8 @@
 import { notFound, redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
-import { getAllCategoriesForAdmin, getProductBySlug } from "@/lib/queries";
+import { getProductBySlug } from "@/lib/queries";
 import { ProductForm } from "@/components/admin/ProductForm";
+import { db } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
@@ -10,7 +11,14 @@ export default async function EditProductPage({ params }: { params: { id: string
   if (!user || user.role !== "ADMIN") redirect("/login");
 
   const [categories, product] = await Promise.all([
-    getAllCategoriesForAdmin(),
+    db.category.findMany({
+      orderBy: { sortOrder: "asc" },
+      include: {
+        _count: {
+          select: { products: true },
+        },
+      },
+    }),
     getProductBySlug(params.id),
   ]);
 

@@ -22,12 +22,12 @@ export default async function AdminDashboardPage() {
 
   return (
     <div>
-      <h1 className="mb-6 text-xl font-bold text-graphite-800">نظرة عامة</h1>
+      <h1 className="mb-6 text-xl font-bold text-onyx-800">نظرة عامة</h1>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
         {cards.map((card) => (
-          <div key={card.label} className="rounded-lg border border-graphite-200 bg-white p-4">
-            <p className="text-xs text-graphite-500">{card.label}</p>
-            <p className={`mt-1 text-2xl font-bold ${card.warn ? "text-amber-600" : "text-graphite-900"}`}>
+          <div key={card.label} className="rounded-lg border border-onyx-200 bg-white p-4">
+            <p className="text-xs text-onyx-500">{card.label}</p>
+            <p className={`mt-1 text-2xl font-bold ${card.warn ? "text-gold-600" : "text-onyx-900"}`}>
               {card.value}
             </p>
           </div>

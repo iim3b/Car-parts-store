@@ -34,7 +34,7 @@ export function CategoryForm() {
     router.refresh();
   }
 
-  const inputClass = "w-full rounded-sm border border-graphite-200 px-3 py-2 text-sm focus:border-amber-400";
+  const inputClass = "w-full rounded-sm border border-onyx-200 px-3 py-2 text-sm focus:border-gold-400";
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-3 sm:grid-cols-4">
@@ -61,7 +61,7 @@ export function CategoryForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="rounded-sm bg-graphite-800 px-4 py-2 text-sm font-medium text-white hover:bg-graphite-900 disabled:bg-graphite-300"
+        className="rounded-sm bg-onyx-800 px-4 py-2 text-sm font-medium text-white hover:bg-onyx-900 disabled:bg-onyx-300"
       >
         {submitting ? "جارٍ الإضافة..." : "+ إضافة قسم"}
       </button>

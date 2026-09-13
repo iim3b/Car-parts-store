@@ -32,7 +32,7 @@ export function ProductActions({ productId, stock }: { productId: string; stock:
     return (
       <button
         disabled
-        className="w-full rounded-sm bg-graphite-200 px-6 py-3 font-medium text-graphite-400"
+        className="w-full rounded-sm bg-onyx-200 px-6 py-3 font-medium text-onyx-400"
       >
         غير متوفر حاليًا
       </button>
@@ -41,11 +41,11 @@ export function ProductActions({ productId, stock }: { productId: string; stock:
 
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-      <div className="flex items-center rounded-sm border border-graphite-200">
+      <div className="flex items-center rounded-sm border border-onyx-200">
         <button
           type="button"
           onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-          className="px-3 py-2.5 text-graphite-600 hover:bg-graphite-50"
+          className="px-3 py-2.5 text-onyx-600 hover:bg-onyx-50"
           aria-label="إنقاص الكمية"
         >
           −
@@ -54,7 +54,7 @@ export function ProductActions({ productId, stock }: { productId: string; stock:
         <button
           type="button"
           onClick={() => setQuantity((q) => Math.min(stock, q + 1))}
-          className="px-3 py-2.5 text-graphite-600 hover:bg-graphite-50"
+          className="px-3 py-2.5 text-onyx-600 hover:bg-onyx-50"
           aria-label="زيادة الكمية"
         >
           +
@@ -64,7 +64,7 @@ export function ProductActions({ productId, stock }: { productId: string; stock:
       <button
         onClick={handleAdd}
         disabled={status === "loading"}
-        className="flex-1 rounded-sm bg-graphite-800 px-6 py-3 font-semibold text-white transition-colors hover:bg-graphite-900 disabled:bg-graphite-300"
+        className="flex-1 rounded-sm bg-onyx-800 px-6 py-3 font-semibold text-white transition-colors hover:bg-onyx-900 disabled:bg-onyx-300"
       >
         {status === "loading" ? "جارٍ الإضافة..." : status === "added" ? "أُضيف للسلة ✓" : "أضف إلى السلة"}
       </button>

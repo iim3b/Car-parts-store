@@ -39,10 +39,10 @@ export function CarFitmentSelector() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-3 rounded-lg bg-white p-4 shadow-card sm:flex-row sm:items-end sm:gap-3 sm:p-5"
+      className="flex flex-col gap-3 rounded-lg border-t-2 border-gold-400 bg-white p-4 shadow-card sm:flex-row sm:items-end sm:gap-3 sm:p-5"
     >
       <div className="flex-1">
-        <label className="mb-1 block text-xs font-medium text-graphite-500">
+        <label className="mb-1 block text-xs font-medium text-onyx-500">
           الشركة المصنّعة
         </label>
         <select
@@ -52,7 +52,7 @@ export function CarFitmentSelector() {
             setModel("");
             setYear("");
           }}
-          className="w-full rounded-sm border border-graphite-200 bg-white px-3 py-2.5 text-graphite-800 focus:border-amber-400"
+          className="w-full rounded-sm border border-onyx-200 bg-white px-3 py-2.5 text-onyx-800 focus:border-gold-400"
         >
           <option value="">اختر الشركة</option>
           {options.map((o) => (
@@ -64,12 +64,12 @@ export function CarFitmentSelector() {
       </div>
 
       <div className="flex-1">
-        <label className="mb-1 block text-xs font-medium text-graphite-500">الموديل</label>
+        <label className="mb-1 block text-xs font-medium text-onyx-500">الموديل</label>
         <select
           value={model}
           onChange={(e) => setModel(e.target.value)}
           disabled={!selectedMake}
-          className="w-full rounded-sm border border-graphite-200 bg-white px-3 py-2.5 text-graphite-800 focus:border-amber-400 disabled:bg-graphite-50 disabled:text-graphite-300"
+          className="w-full rounded-sm border border-onyx-200 bg-white px-3 py-2.5 text-onyx-800 focus:border-gold-400 disabled:bg-onyx-50 disabled:text-onyx-300"
         >
           <option value="">اختر الموديل</option>
           {selectedMake?.models.map((m) => (
@@ -81,12 +81,12 @@ export function CarFitmentSelector() {
       </div>
 
       <div className="flex-1">
-        <label className="mb-1 block text-xs font-medium text-graphite-500">سنة الصنع</label>
+        <label className="mb-1 block text-xs font-medium text-onyx-500">سنة الصنع</label>
         <select
           value={year}
           onChange={(e) => setYear(e.target.value)}
           disabled={!selectedMake}
-          className="w-full rounded-sm border border-graphite-200 bg-white px-3 py-2.5 text-graphite-800 focus:border-amber-400 disabled:bg-graphite-50 disabled:text-graphite-300"
+          className="w-full rounded-sm border border-onyx-200 bg-white px-3 py-2.5 text-onyx-800 focus:border-gold-400 disabled:bg-onyx-50 disabled:text-onyx-300"
         >
           <option value="">اختر السنة</option>
           {years.map((y) => (
@@ -99,7 +99,7 @@ export function CarFitmentSelector() {
 
       <button
         type="submit"
-        className="rounded-sm bg-amber-400 px-6 py-2.5 font-semibold text-graphite-900 transition-colors hover:bg-amber-300 sm:w-auto"
+        className="rounded-sm bg-gold-400 px-6 py-2.5 font-semibold text-onyx-900 transition-colors hover:bg-gold-300 sm:w-auto"
       >
         عرض القطع المتوافقة
       </button>

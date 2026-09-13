@@ -10,10 +10,10 @@ const STATUS_LABELS: Record<OrderStatus, string> = {
 };
 
 const STATUS_STYLES: Record<OrderStatus, string> = {
-  PENDING: "bg-graphite-100 text-graphite-600",
+  PENDING: "bg-onyx-100 text-onyx-600",
   PAID: "bg-success-50 text-success-600",
-  PROCESSING: "bg-amber-50 text-amber-600",
-  SHIPPED: "bg-graphite-800 text-white",
+  PROCESSING: "bg-gold-50 text-gold-600",
+  SHIPPED: "bg-onyx-800 text-white",
   DELIVERED: "bg-success-500 text-white",
   CANCELLED: "bg-danger-50 text-danger-600",
 };

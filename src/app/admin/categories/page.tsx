@@ -14,15 +14,15 @@ export default async function AdminCategoriesPage() {
 
   return (
     <div>
-      <h1 className="mb-6 text-xl font-bold text-graphite-800">الأقسام</h1>
+      <h1 className="mb-6 text-xl font-bold text-onyx-800">الأقسام</h1>
 
-      <div className="mb-6 rounded-lg border border-graphite-200 bg-white p-4">
+      <div className="mb-6 rounded-lg border border-onyx-200 bg-white p-4">
         <CategoryForm />
       </div>
 
-      <div className="overflow-x-auto rounded-lg border border-graphite-200 bg-white">
+      <div className="overflow-x-auto rounded-lg border border-onyx-200 bg-white">
         <table className="w-full text-sm">
-          <thead className="border-b border-graphite-200 bg-graphite-50 text-right text-graphite-500">
+          <thead className="border-b border-onyx-200 bg-onyx-50 text-right text-onyx-500">
             <tr>
               <th className="p-3 font-medium">القسم</th>
               <th className="p-3 font-medium">الوصف</th>
@@ -32,10 +32,10 @@ export default async function AdminCategoriesPage() {
           </thead>
           <tbody>
             {categories.map((category) => (
-              <tr key={category.id} className="border-b border-graphite-100 last:border-0">
-                <td className="p-3 font-medium text-graphite-800">{category.name}</td>
-                <td className="p-3 text-graphite-500">{category.description || "—"}</td>
-                <td className="p-3 text-graphite-700">{category._count.products}</td>
+              <tr key={category.id} className="border-b border-onyx-100 last:border-0">
+                <td className="p-3 font-medium text-onyx-800">{category.name}</td>
+                <td className="p-3 text-onyx-500">{category.description || "—"}</td>
+                <td className="p-3 text-onyx-700">{category._count.products}</td>
                 <td className="p-3 text-left">
                   <DeleteButton
                     endpoint={`/api/categories/${category.id}`}

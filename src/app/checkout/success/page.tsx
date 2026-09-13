@@ -30,18 +30,18 @@ export default async function CheckoutSuccessPage({
         </svg>
       </div>
 
-      <h1 className="text-2xl font-bold text-graphite-900">تم استلام طلبك بنجاح</h1>
-      <p className="mt-2 text-graphite-500">
-        رقم الطلب: <span className="font-semibold text-graphite-800">{order.orderNumber}</span>
+      <h1 className="text-2xl font-bold text-onyx-900">تم استلام طلبك بنجاح</h1>
+      <p className="mt-2 text-onyx-500">
+        رقم الطلب: <span className="font-semibold text-onyx-800">{order.orderNumber}</span>
       </p>
-      <p className="mt-1 text-sm text-graphite-400">
+      <p className="mt-1 text-sm text-onyx-400">
         {order.paymentStatus === "PAID"
           ? "تم تأكيد الدفع، وسنبدأ بتجهيز طلبك قريبًا."
           : "بانتظار تأكيد الدفع، سيصلك إشعار عند التأكيد."}
       </p>
 
-      <div className="mt-6 rounded-lg border border-graphite-200 bg-white p-5 text-right">
-        <ul className="space-y-2 text-sm text-graphite-600">
+      <div className="mt-6 rounded-lg border border-onyx-200 bg-white p-5 text-right">
+        <ul className="space-y-2 text-sm text-onyx-600">
           {order.items.map((item) => (
             <li key={item.id} className="flex justify-between">
               <span>{item.productName} × {item.quantity}</span>
@@ -49,17 +49,17 @@ export default async function CheckoutSuccessPage({
             </li>
           ))}
         </ul>
-        <div className="mt-3 flex justify-between border-t border-graphite-200 pt-3 font-bold text-graphite-900">
+        <div className="mt-3 flex justify-between border-t border-onyx-200 pt-3 font-bold text-onyx-900">
           <span>الإجمالي</span>
           <span>{formatPrice(order.total)}</span>
         </div>
       </div>
 
       <div className="mt-8 flex justify-center gap-3">
-        <Link href="/products" className="rounded-sm border border-graphite-300 px-5 py-2.5 font-medium text-graphite-700 hover:bg-graphite-50">
+        <Link href="/products" className="rounded-sm border border-onyx-300 px-5 py-2.5 font-medium text-onyx-700 hover:bg-onyx-50">
           متابعة التسوّق
         </Link>
-        <Link href="/account/orders" className="rounded-sm bg-graphite-800 px-5 py-2.5 font-medium text-white hover:bg-graphite-900">
+        <Link href="/account/orders" className="rounded-sm bg-onyx-800 px-5 py-2.5 font-medium text-white hover:bg-onyx-900">
           طلباتي
         </Link>
       </div>

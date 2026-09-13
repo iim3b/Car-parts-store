@@ -61,46 +61,46 @@ export default function CheckoutPage() {
 
   return (
     <div className="container-page py-8">
-      <h1 className="mb-6 text-2xl font-bold text-graphite-800">إتمام الطلب</h1>
+      <h1 className="mb-6 text-2xl font-bold text-onyx-800">إتمام الطلب</h1>
 
       <div className="grid gap-8 lg:grid-cols-3">
         <form onSubmit={handleSubmit} className="space-y-4 lg:col-span-2">
           <div>
-            <label className="mb-1 block text-sm font-medium text-graphite-700">الاسم الكامل</label>
+            <label className="mb-1 block text-sm font-medium text-onyx-700">الاسم الكامل</label>
             <input
               name="shippingName"
               required
               value={form.shippingName}
               onChange={handleChange}
-              className="w-full rounded-sm border border-graphite-200 px-3 py-2.5 focus:border-amber-400"
+              className="w-full rounded-sm border border-onyx-200 px-3 py-2.5 focus:border-gold-400"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-graphite-700">رقم الجوال</label>
+            <label className="mb-1 block text-sm font-medium text-onyx-700">رقم الجوال</label>
             <input
               name="shippingPhone"
               required
               value={form.shippingPhone}
               onChange={handleChange}
               placeholder="05xxxxxxxx"
-              className="w-full rounded-sm border border-graphite-200 px-3 py-2.5 focus:border-amber-400"
+              className="w-full rounded-sm border border-onyx-200 px-3 py-2.5 focus:border-gold-400"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-graphite-700">المدينة</label>
+            <label className="mb-1 block text-sm font-medium text-onyx-700">المدينة</label>
             <input
               name="shippingCity"
               required
               value={form.shippingCity}
               onChange={handleChange}
-              className="w-full rounded-sm border border-graphite-200 px-3 py-2.5 focus:border-amber-400"
+              className="w-full rounded-sm border border-onyx-200 px-3 py-2.5 focus:border-gold-400"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-graphite-700">العنوان التفصيلي</label>
+            <label className="mb-1 block text-sm font-medium text-onyx-700">العنوان التفصيلي</label>
             <textarea
               name="shippingAddress"
               required
@@ -108,18 +108,18 @@ export default function CheckoutPage() {
               value={form.shippingAddress}
               onChange={handleChange}
               placeholder="الحي، الشارع، رقم المبنى..."
-              className="w-full rounded-sm border border-graphite-200 px-3 py-2.5 focus:border-amber-400"
+              className="w-full rounded-sm border border-onyx-200 px-3 py-2.5 focus:border-gold-400"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-graphite-700">ملاحظات (اختياري)</label>
+            <label className="mb-1 block text-sm font-medium text-onyx-700">ملاحظات (اختياري)</label>
             <textarea
               name="notes"
               rows={2}
               value={form.notes}
               onChange={handleChange}
-              className="w-full rounded-sm border border-graphite-200 px-3 py-2.5 focus:border-amber-400"
+              className="w-full rounded-sm border border-onyx-200 px-3 py-2.5 focus:border-gold-400"
             />
           </div>
 
@@ -128,15 +128,15 @@ export default function CheckoutPage() {
           <button
             type="submit"
             disabled={submitting || items.length === 0}
-            className="w-full rounded-sm bg-amber-400 px-4 py-3 font-semibold text-graphite-900 hover:bg-amber-300 disabled:bg-graphite-200 disabled:text-graphite-400"
+            className="w-full rounded-sm bg-gold-400 px-4 py-3 font-semibold text-onyx-900 hover:bg-gold-300 disabled:bg-onyx-200 disabled:text-onyx-400"
           >
             {submitting ? "جارٍ التحويل لبوابة الدفع..." : "المتابعة إلى الدفع"}
           </button>
         </form>
 
-        <div className="h-fit rounded-lg border border-graphite-200 bg-white p-5">
-          <h2 className="mb-4 font-semibold text-graphite-800">ملخص الطلب</h2>
-          <ul className="mb-4 space-y-2 text-sm text-graphite-600">
+        <div className="h-fit rounded-lg border border-onyx-200 bg-white p-5">
+          <h2 className="mb-4 font-semibold text-onyx-800">ملخص الطلب</h2>
+          <ul className="mb-4 space-y-2 text-sm text-onyx-600">
             {items.map((item) => (
               <li key={item.id} className="flex justify-between">
                 <span>{item.product.name} × {item.quantity}</span>
@@ -144,16 +144,16 @@ export default function CheckoutPage() {
               </li>
             ))}
           </ul>
-          <div className="space-y-1 border-t border-graphite-200 pt-3 text-sm">
-            <div className="flex justify-between text-graphite-600">
+          <div className="space-y-1 border-t border-onyx-200 pt-3 text-sm">
+            <div className="flex justify-between text-onyx-600">
               <span>المجموع الفرعي</span>
               <span>{formatPrice(subtotal)}</span>
             </div>
-            <div className="flex justify-between text-graphite-600">
+            <div className="flex justify-between text-onyx-600">
               <span>الشحن</span>
               <span>{shippingFee === 0 ? "مجاني" : formatPrice(shippingFee)}</span>
             </div>
-            <div className="flex justify-between border-t border-graphite-200 pt-2 text-base font-bold text-graphite-900">
+            <div className="flex justify-between border-t border-onyx-200 pt-2 text-base font-bold text-onyx-900">
               <span>الإجمالي</span>
               <span>{formatPrice(total)}</span>
             </div>

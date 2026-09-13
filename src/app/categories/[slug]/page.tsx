@@ -43,11 +43,11 @@ export default async function CategoryPage({
   return (
     <div className="container-page py-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-graphite-800">{category.name}</h1>
+        <h1 className="text-2xl font-bold text-onyx-800">{category.name}</h1>
         {category.description && (
-          <p className="mt-1 text-sm text-graphite-500">{category.description}</p>
+          <p className="mt-1 text-sm text-onyx-500">{category.description}</p>
         )}
-        <p className="mt-1 text-sm text-graphite-400">{pagination.total} منتج</p>
+        <p className="mt-1 text-sm text-onyx-400">{pagination.total} منتج</p>
       </div>
 
       <div className="flex flex-col gap-8 lg:flex-row">
@@ -55,7 +55,7 @@ export default async function CategoryPage({
 
         <div className="flex-1">
           {products.length === 0 ? (
-            <div className="rounded-lg border border-dashed border-graphite-300 py-16 text-center text-graphite-500">
+            <div className="rounded-lg border border-dashed border-onyx-300 py-16 text-center text-onyx-500">
               لا توجد منتجات في هذا القسم حاليًا.
             </div>
           ) : (

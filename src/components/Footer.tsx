@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="mt-16 border-t border-graphite-200 bg-graphite-900 text-graphite-300">
+    <footer className="mt-16 border-t border-gold-600/40 bg-onyx-900 text-onyx-300">
       <div className="container-page grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <h3 className="mb-3 text-lg font-bold text-white">
-            مستودع <span className="text-amber-400">القطع</span>
+            مستودع <span className="text-gold-400">القطع</span>
           </h3>
-          <p className="text-sm leading-relaxed text-graphite-400">
+          <p className="text-sm leading-relaxed text-onyx-400">
             قطع غيار أصلية وبديلة لجميع أنواع السيارات، مع ضمان التوافق وسرعة الشحن.
           </p>
         </div>
@@ -31,7 +31,7 @@ export function Footer() {
 
         <div>
           <h4 className="mb-3 text-sm font-semibold text-white">لماذا نحن؟</h4>
-          <ul className="space-y-2 text-sm text-graphite-400">
+          <ul className="space-y-2 text-sm text-onyx-400">
             <li>ضمان مطابقة القطعة لسيارتك</li>
             <li>دفع إلكتروني آمن</li>
             <li>شحن لجميع المناطق</li>
@@ -39,7 +39,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-graphite-800 py-4 text-center text-xs text-graphite-500">
+      <div className="border-t border-onyx-800 py-4 text-center text-xs text-onyx-500">
         © {new Date().getFullYear()} مستودع القطع. جميع الحقوق محفوظة.
       </div>
     </footer>

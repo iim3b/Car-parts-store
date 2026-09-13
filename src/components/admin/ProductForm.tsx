@@ -118,7 +118,7 @@ export function ProductForm({
   }
 
   const inputClass =
-    "w-full rounded-sm border border-graphite-200 px-3 py-2 text-sm focus:border-amber-400";
+    "w-full rounded-sm border border-onyx-200 px-3 py-2 text-sm focus:border-gold-400";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -159,11 +159,11 @@ export function ProductForm({
       </Field>
 
       <div className="flex gap-6">
-        <label className="flex items-center gap-2 text-sm text-graphite-700">
+        <label className="flex items-center gap-2 text-sm text-onyx-700">
           <input type="checkbox" checked={form.isActive} onChange={(e) => updateField("isActive", e.target.checked)} />
           منشور (ظاهر للعملاء)
         </label>
-        <label className="flex items-center gap-2 text-sm text-graphite-700">
+        <label className="flex items-center gap-2 text-sm text-onyx-700">
           <input type="checkbox" checked={form.isFeatured} onChange={(e) => updateField("isFeatured", e.target.checked)} />
           منتج مميز (يظهر بالصفحة الرئيسية)
         </label>
@@ -171,8 +171,8 @@ export function ProductForm({
 
       <section>
         <div className="mb-2 flex items-center justify-between">
-          <h3 className="font-semibold text-graphite-800">صور إضافية</h3>
-          <button type="button" onClick={addImage} className="text-sm font-medium text-amber-600 hover:text-amber-700">+ إضافة صورة</button>
+          <h3 className="font-semibold text-onyx-800">صور إضافية</h3>
+          <button type="button" onClick={addImage} className="text-sm font-medium text-gold-600 hover:text-gold-700">+ إضافة صورة</button>
         </div>
         <div className="space-y-2">
           {form.images.map((img, i) => (
@@ -186,12 +186,12 @@ export function ProductForm({
 
       <section>
         <div className="mb-2 flex items-center justify-between">
-          <h3 className="font-semibold text-graphite-800">توافق السيارات</h3>
-          <button type="button" onClick={addCompatibility} className="text-sm font-medium text-amber-600 hover:text-amber-700">+ إضافة توافق</button>
+          <h3 className="font-semibold text-onyx-800">توافق السيارات</h3>
+          <button type="button" onClick={addCompatibility} className="text-sm font-medium text-gold-600 hover:text-gold-700">+ إضافة توافق</button>
         </div>
         <div className="space-y-2">
           {form.compatibilities.map((c, i) => (
-            <div key={i} className="grid grid-cols-2 gap-2 rounded-sm border border-graphite-200 p-3 sm:grid-cols-5 sm:items-center">
+            <div key={i} className="grid grid-cols-2 gap-2 rounded-sm border border-onyx-200 p-3 sm:grid-cols-5 sm:items-center">
               <input placeholder="الشركة (مثال: تويوتا)" value={c.make} onChange={(e) => updateCompatibility(i, { make: e.target.value })} className={inputClass} />
               <input placeholder="الموديل (مثال: كامري)" value={c.model} onChange={(e) => updateCompatibility(i, { model: e.target.value })} className={inputClass} />
               <input type="number" placeholder="من سنة" value={c.yearFrom} onChange={(e) => updateCompatibility(i, { yearFrom: Number(e.target.value) })} className={inputClass} />
@@ -207,7 +207,7 @@ export function ProductForm({
       <button
         type="submit"
         disabled={submitting}
-        className="rounded-sm bg-graphite-800 px-6 py-2.5 font-medium text-white hover:bg-graphite-900 disabled:bg-graphite-300"
+        className="rounded-sm bg-onyx-800 px-6 py-2.5 font-medium text-white hover:bg-onyx-900 disabled:bg-onyx-300"
       >
         {submitting ? "جارٍ الحفظ..." : isEdit ? "حفظ التعديلات" : "إنشاء المنتج"}
       </button>
@@ -218,7 +218,7 @@ export function ProductForm({
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <span className="mb-1 block text-sm font-medium text-graphite-700">{label}</span>
+      <span className="mb-1 block text-sm font-medium text-onyx-700">{label}</span>
       {children}
     </label>
   );

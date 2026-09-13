@@ -1,12 +1,12 @@
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, toNumber, type PriceValue } from "@/lib/utils";
 
 export function Price({
   value,
   compareAt,
   size = "md",
 }: {
-  value: number | string;
-  compareAt?: number | string | null;
+  value: PriceValue;
+  compareAt?: PriceValue | null;
   size?: "sm" | "md" | "lg";
 }) {
   const sizeClasses = {
@@ -17,11 +17,11 @@ export function Price({
 
   return (
     <div className="flex items-baseline gap-2">
-      <span className={`font-bold text-amber-600 ${sizeClasses[size]}`}>
+      <span className={`font-bold text-gold-600 ${sizeClasses[size]}`}>
         {formatPrice(value)}
       </span>
-      {compareAt && Number(compareAt) > Number(value) && (
-        <span className="text-sm text-graphite-400 line-through">
+      {compareAt && toNumber(compareAt) > toNumber(value) && (
+        <span className="text-sm text-onyx-400 line-through">
           {formatPrice(compareAt)}
         </span>
       )}

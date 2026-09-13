@@ -33,7 +33,7 @@ export function OrderStatusSelect({ orderId, status }: { orderId: string; status
       defaultValue={status}
       onChange={handleChange}
       disabled={loading}
-      className="rounded-sm border border-graphite-200 px-2 py-1.5 text-sm"
+      className="rounded-sm border border-onyx-200 px-2 py-1.5 text-sm"
     >
       {STATUS_OPTIONS.map((opt) => (
         <option key={opt.value} value={opt.value}>{opt.label}</option>

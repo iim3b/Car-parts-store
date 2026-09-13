@@ -17,11 +17,11 @@ export default async function AdminOrdersPage() {
 
   return (
     <div>
-      <h1 className="mb-6 text-xl font-bold text-graphite-800">الطلبات ({orders.length})</h1>
+      <h1 className="mb-6 text-xl font-bold text-onyx-800">الطلبات ({orders.length})</h1>
 
-      <div className="overflow-x-auto rounded-lg border border-graphite-200 bg-white">
+      <div className="overflow-x-auto rounded-lg border border-onyx-200 bg-white">
         <table className="w-full text-sm">
-          <thead className="border-b border-graphite-200 bg-graphite-50 text-right text-graphite-500">
+          <thead className="border-b border-onyx-200 bg-onyx-50 text-right text-onyx-500">
             <tr>
               <th className="p-3 font-medium">رقم الطلب</th>
               <th className="p-3 font-medium">العميل</th>
@@ -33,16 +33,16 @@ export default async function AdminOrdersPage() {
           </thead>
           <tbody>
             {orders.map((order) => (
-              <tr key={order.id} className="border-b border-graphite-100 last:border-0">
-                <td className="p-3 font-medium text-graphite-800">{order.orderNumber}</td>
-                <td className="p-3 text-graphite-600">
+              <tr key={order.id} className="border-b border-onyx-100 last:border-0">
+                <td className="p-3 font-medium text-onyx-800">{order.orderNumber}</td>
+                <td className="p-3 text-onyx-600">
                   {order.shippingName}
-                  <div className="text-xs text-graphite-400">{order.shippingPhone}</div>
+                  <div className="text-xs text-onyx-400">{order.shippingPhone}</div>
                 </td>
-                <td className="p-3 text-graphite-500">{order.shippingCity}</td>
-                <td className="p-3 font-medium text-graphite-800">{formatPrice(order.total)}</td>
+                <td className="p-3 text-onyx-500">{order.shippingCity}</td>
+                <td className="p-3 font-medium text-onyx-800">{formatPrice(order.total)}</td>
                 <td className="p-3">
-                  <span className={`rounded-sm px-2 py-0.5 text-xs ${order.paymentStatus === "PAID" ? "bg-success-50 text-success-600" : "bg-graphite-100 text-graphite-500"}`}>
+                  <span className={`rounded-sm px-2 py-0.5 text-xs ${order.paymentStatus === "PAID" ? "bg-success-50 text-success-600" : "bg-onyx-100 text-onyx-500"}`}>
                     {order.paymentStatus === "PAID" ? "مدفوع" : "غير مدفوع"}
                   </span>
                 </td>
@@ -54,7 +54,7 @@ export default async function AdminOrdersPage() {
           </tbody>
         </table>
         {orders.length === 0 && (
-          <p className="p-8 text-center text-graphite-400">لا توجد طلبات بعد.</p>
+          <p className="p-8 text-center text-onyx-400">لا توجد طلبات بعد.</p>
         )}
       </div>
     </div>

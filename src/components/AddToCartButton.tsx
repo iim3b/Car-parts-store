@@ -42,7 +42,7 @@ export function AddToCartButton({
         type="button"
         onClick={handleClick}
         disabled={disabled || status === "loading"}
-        className="w-full rounded-sm bg-graphite-800 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-graphite-900 disabled:cursor-not-allowed disabled:bg-graphite-200 disabled:text-graphite-400"
+        className="w-full rounded-sm bg-onyx-800 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-onyx-900 disabled:cursor-not-allowed disabled:bg-onyx-200 disabled:text-onyx-400"
       >
         {status === "loading"
           ? "جارٍ الإضافة..."

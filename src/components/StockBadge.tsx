@@ -9,8 +9,8 @@ export function StockBadge({ stock }: { stock: number }) {
   }
   if (stock <= 5) {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-sm bg-amber-50 px-2 py-1 text-xs font-medium text-amber-600">
-        <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+      <span className="inline-flex items-center gap-1.5 rounded-sm bg-gold-50 px-2 py-1 text-xs font-medium text-gold-600">
+        <span className="h-1.5 w-1.5 rounded-full bg-gold-400" />
         بقي {stock} فقط
       </span>
     );

@@ -29,20 +29,20 @@ export function Pagination({
   return (
     <nav className="mt-8 flex items-center justify-center gap-1.5">
       {currentPage > 1 && (
-        <Link href={buildHref(currentPage - 1)} className="rounded-sm border border-graphite-200 px-3 py-1.5 text-sm hover:bg-graphite-50">
+        <Link href={buildHref(currentPage - 1)} className="rounded-sm border border-onyx-200 px-3 py-1.5 text-sm hover:bg-onyx-50">
           السابق
         </Link>
       )}
 
       {pages.map((page, idx) => (
         <span key={page} className="flex items-center gap-1.5">
-          {idx > 0 && pages[idx - 1] !== page - 1 && <span className="text-graphite-300">…</span>}
+          {idx > 0 && pages[idx - 1] !== page - 1 && <span className="text-onyx-300">…</span>}
           <Link
             href={buildHref(page)}
             className={`rounded-sm px-3 py-1.5 text-sm ${
               page === currentPage
-                ? "bg-graphite-800 text-white"
-                : "border border-graphite-200 hover:bg-graphite-50"
+                ? "bg-onyx-800 text-white"
+                : "border border-onyx-200 hover:bg-onyx-50"
             }`}
           >
             {page}
@@ -51,7 +51,7 @@ export function Pagination({
       ))}
 
       {currentPage < totalPages && (
-        <Link href={buildHref(currentPage + 1)} className="rounded-sm border border-graphite-200 px-3 py-1.5 text-sm hover:bg-graphite-50">
+        <Link href={buildHref(currentPage + 1)} className="rounded-sm border border-onyx-200 px-3 py-1.5 text-sm hover:bg-onyx-50">
           التالي
         </Link>
       )}

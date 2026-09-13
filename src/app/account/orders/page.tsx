@@ -18,13 +18,13 @@ export default async function OrdersPage() {
 
   return (
     <div className="container-page py-8">
-      <h1 className="mb-6 text-2xl font-bold text-graphite-800">طلباتي</h1>
+      <h1 className="mb-6 text-2xl font-bold text-onyx-800">طلباتي</h1>
 
       {orders.length === 0 ? (
-        <div className="rounded-lg border border-dashed border-graphite-300 py-16 text-center text-graphite-500">
+        <div className="rounded-lg border border-dashed border-onyx-300 py-16 text-center text-onyx-500">
           لا توجد طلبات بعد.
           <div>
-            <Link href="/products" className="mt-3 inline-block font-medium text-amber-600 hover:text-amber-700">
+            <Link href="/products" className="mt-3 inline-block font-medium text-gold-600 hover:text-gold-700">
               ابدأ التسوّق
             </Link>
           </div>
@@ -35,17 +35,17 @@ export default async function OrdersPage() {
             <Link
               key={order.id}
               href={`/account/orders/${order.id}`}
-              className="flex flex-col gap-2 rounded-lg border border-graphite-200 bg-white p-4 hover:border-graphite-300 sm:flex-row sm:items-center sm:justify-between"
+              className="flex flex-col gap-2 rounded-lg border border-onyx-200 bg-white p-4 hover:border-onyx-300 sm:flex-row sm:items-center sm:justify-between"
             >
               <div>
-                <p className="font-semibold text-graphite-800">{order.orderNumber}</p>
-                <p className="text-sm text-graphite-400">
+                <p className="font-semibold text-onyx-800">{order.orderNumber}</p>
+                <p className="text-sm text-onyx-400">
                   {new Date(order.createdAt).toLocaleDateString("ar-SA")} · {order.items.length} منتج
                 </p>
               </div>
               <div className="flex items-center gap-3">
                 <OrderStatusBadge status={order.status} />
-                <span className="font-semibold text-graphite-800">{formatPrice(order.total)}</span>
+                <span className="font-semibold text-onyx-800">{formatPrice(order.total)}</span>
               </div>
             </Link>
           ))}

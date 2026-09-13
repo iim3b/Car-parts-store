@@ -1,11 +1,20 @@
+import { Prisma } from "@prisma/client";
+
+/** أي قيمة سعر قد تصل من الواجهة (string/number) أو مباشرة من قاعدة البيانات (Prisma.Decimal) */
+export type PriceValue = number | string | Prisma.Decimal;
+
+/** يحوّل أي قيمة سعر (رقم، نص، أو Prisma.Decimal) إلى رقم عادي بأمان */
+export function toNumber(value: PriceValue): number {
+  return typeof value === "number" ? value : parseFloat(value.toString());
+}
+
 /** تنسيق السعر بالريال السعودي بأرقام لاتينية واضحة (0-9) مع خانتين عشريتين */
-export function formatPrice(value: number | string): string {
-  const num = typeof value === "string" ? parseFloat(value) : value;
+export function formatPrice(value: PriceValue): string {
   return new Intl.NumberFormat("ar-SA-u-nu-latn", {
     style: "currency",
     currency: "SAR",
     minimumFractionDigits: 2,
-  }).format(num);
+  }).format(toNumber(value));
 }
 
 /** توليد رقم طلب فريد قابل للقراءة، مثال: ORD-20260904-4821 */

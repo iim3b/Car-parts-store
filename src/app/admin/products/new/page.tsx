@@ -13,8 +13,8 @@ export default async function NewProductPage() {
 
   return (
     <div>
-      <h1 className="mb-6 text-xl font-bold text-graphite-800">منتج جديد</h1>
-      <div className="rounded-lg border border-graphite-200 bg-white p-5">
+      <h1 className="mb-6 text-xl font-bold text-onyx-800">منتج جديد</h1>
+      <div className="rounded-lg border border-onyx-200 bg-white p-5">
         <ProductForm categories={categories} />
       </div>
     </div>

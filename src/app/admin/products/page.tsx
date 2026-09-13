@@ -16,18 +16,18 @@ export default async function AdminProductsPage() {
   return (
     <div>
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-xl font-bold text-graphite-800">المنتجات ({products.length})</h1>
+        <h1 className="text-xl font-bold text-onyx-800">المنتجات ({products.length})</h1>
         <Link
           href="/admin/products/new"
-          className="rounded-sm bg-graphite-800 px-4 py-2 text-sm font-medium text-white hover:bg-graphite-900"
+          className="rounded-sm bg-onyx-800 px-4 py-2 text-sm font-medium text-white hover:bg-onyx-900"
         >
           + منتج جديد
         </Link>
       </div>
 
-      <div className="overflow-x-auto rounded-lg border border-graphite-200 bg-white">
+      <div className="overflow-x-auto rounded-lg border border-onyx-200 bg-white">
         <table className="w-full text-sm">
-          <thead className="border-b border-graphite-200 bg-graphite-50 text-right text-graphite-500">
+          <thead className="border-b border-onyx-200 bg-onyx-50 text-right text-onyx-500">
             <tr>
               <th className="p-3 font-medium">المنتج</th>
               <th className="p-3 font-medium">القسم</th>
@@ -39,21 +39,21 @@ export default async function AdminProductsPage() {
           </thead>
           <tbody>
             {products.map((product) => (
-              <tr key={product.id} className="border-b border-graphite-100 last:border-0">
-                <td className="p-3 font-medium text-graphite-800">{product.name}</td>
-                <td className="p-3 text-graphite-500">{product.category.name}</td>
-                <td className="p-3 text-graphite-700">{formatPrice(product.price)}</td>
-                <td className={`p-3 ${product.stock <= 5 ? "text-amber-600" : "text-graphite-700"}`}>
+              <tr key={product.id} className="border-b border-onyx-100 last:border-0">
+                <td className="p-3 font-medium text-onyx-800">{product.name}</td>
+                <td className="p-3 text-onyx-500">{product.category.name}</td>
+                <td className="p-3 text-onyx-700">{formatPrice(product.price)}</td>
+                <td className={`p-3 ${product.stock <= 5 ? "text-gold-600" : "text-onyx-700"}`}>
                   {product.stock}
                 </td>
                 <td className="p-3">
-                  <span className={`rounded-sm px-2 py-0.5 text-xs ${product.isActive ? "bg-success-50 text-success-600" : "bg-graphite-100 text-graphite-500"}`}>
+                  <span className={`rounded-sm px-2 py-0.5 text-xs ${product.isActive ? "bg-success-50 text-success-600" : "bg-onyx-100 text-onyx-500"}`}>
                     {product.isActive ? "منشور" : "مخفي"}
                   </span>
                 </td>
                 <td className="p-3">
                   <div className="flex items-center justify-end gap-3">
-                    <Link href={`/admin/products/${product.id}/edit`} className="text-sm font-medium text-graphite-600 hover:text-graphite-900">
+                    <Link href={`/admin/products/${product.id}/edit`} className="text-sm font-medium text-onyx-600 hover:text-onyx-900">
                       تعديل
                     </Link>
                     <DeleteButton
@@ -67,7 +67,7 @@ export default async function AdminProductsPage() {
           </tbody>
         </table>
         {products.length === 0 && (
-          <p className="p-8 text-center text-graphite-400">لا توجد منتجات بعد.</p>
+          <p className="p-8 text-center text-onyx-400">لا توجد منتجات بعد.</p>
         )}
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   formatPrice,
+  toNumber,
   slugify,
   clampPage,
   generateOrderNumber,
@@ -16,6 +17,20 @@ describe("formatPrice", () => {
   it("يقبل قيمة نصية ويحوّلها بنجاح", () => {
     const result = formatPrice("99.5");
     expect(result).toContain("99.50") ;
+  });
+
+  it("يقبل كائنًا يشبه Prisma.Decimal (له toString) دون خطأ نوع أو تنسيق خاطئ", () => {
+    // يحاكي شكل Prisma.Decimal القادم مباشرة من استعلامات قاعدة البيانات في مكوّنات الخادم،
+    // وهو بالضبط الخطأ الذي ظهر فعليًا أثناء البناء على Vercel قبل هذا الإصلاح.
+    const fakeDecimal = { toString: () => "249.90" } as unknown as Parameters<typeof formatPrice>[0];
+    expect(formatPrice(fakeDecimal)).toContain("249.90");
+  });
+});
+
+describe("toNumber", () => {
+  it("يحوّل الكائن الشبيه بـ Decimal إلى رقم صحيح", () => {
+    const fakeDecimal = { toString: () => "75.30" } as unknown as Parameters<typeof toNumber>[0];
+    expect(toNumber(fakeDecimal)).toBe(75.3);
   });
 });
 

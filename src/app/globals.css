@@ -8,19 +8,19 @@
   }
 
   body {
-    @apply bg-graphite-50 text-graphite-900 antialiased;
+    @apply bg-onyx-50 text-onyx-900 antialiased;
   }
 
   /* حلقة تركيز واضحة عند التنقل بلوحة المفاتيح، بلون الكهرمان المميز للموقع */
   :focus-visible {
-    outline: 2px solid theme("colors.amber.400");
+    outline: 2px solid theme("colors.gold.400");
     outline-offset: 2px;
     border-radius: 4px;
   }
 
   ::selection {
-    background-color: theme("colors.amber.200");
-    color: theme("colors.graphite.900");
+    background-color: theme("colors.gold.200");
+    color: theme("colors.onyx.900");
   }
 }
 
